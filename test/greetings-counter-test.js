@@ -11,4 +11,14 @@ describe('The greetCounter function',function(){
     greeterObj.greet('Greg','Afrikaans');
     assert.equal(greeterObj.getCountTotal(),3);
   });
+  it('should not increment the counter when the same users have been greeted',function(){
+    var greeterObj = GreetingsFactory();
+    greeterObj.greet('Mike','Afrikaans');
+    greeterObj.greet('Mike','Afrikaans');
+    greeterObj.greet('Andrew','isiXhosa');
+    greeterObj.greet('Greg','Afrikaans');
+    greeterObj.greet('Andrew','isiXhosa');
+    greeterObj.greet('Greg','Afrikaans');
+    assert.equal(greeterObj.getCountTotal(),3);
+  });
 });
