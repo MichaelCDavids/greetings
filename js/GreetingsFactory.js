@@ -18,7 +18,7 @@ function GreetingsFactory(storedUsers){
         }else if (language==='isiXhosa'){
           return "Molo, "+name;
         }
-      }  
+      }
     }
   function greetedMap(user){
     if (namesGreeted[user] === undefined){
@@ -27,6 +27,7 @@ function GreetingsFactory(storedUsers){
   }
   function resetCounter(){
     localStorage.clear();
+    location.reload();
   }
 
   function counter(){
