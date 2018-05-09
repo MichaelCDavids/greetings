@@ -9,7 +9,7 @@ function GreetingsFactory(storedUsers){
   function greetings(name,language){
       if(name !== ""){
         if (namesGreeted[name] === undefined){
-        namesGreeted[name] = 0;
+          namesGreeted[name] = 0;
         }
         if(language==='English'){
           return "Hello, "+name;
@@ -20,6 +20,17 @@ function GreetingsFactory(storedUsers){
         }
       }
     }
+
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    function validateAlpha(){
+      var textInput = document.getElementById("cname").value;
+      textInput = textInput.replace(/[^A-Za-z]/g, "");
+      document.getElementById("cname").value = textInput;
+  }
+
   function greetedMap(user){
     if (namesGreeted[user] === undefined){
       namesGreeted[user] = 0;
@@ -48,7 +59,7 @@ function GreetingsFactory(storedUsers){
     count : counter,
     getCountTotal: totalCount,
     userMap : getMap,
-
+    firstCap : capitalizeFirstLetter,
     reset : resetCounter
   }
 }
