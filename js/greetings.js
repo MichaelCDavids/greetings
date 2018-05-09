@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded',function(){
       if(name !== ""){
         outputSection.innerHTML = greetObject.greet(name,language);
       }else if (name === "" ){
-        alert("Please enter your name");
         outputSection.innerHTML = "Name can not be empty"
       }
       counterSection.innerHTML = greetObject.getCountTotal();
