@@ -43,7 +43,14 @@
     <div class="row">
       <div class="twelve columns">
         <h5>Enter Your Name</h5>
-        <input name="name"   class="name-box" />
+        <input id="firstName" name="name"   class="name-box" type="text" oninput="validateAlpha();"/>
+        <script type="text/javascript">
+          function validateAlpha(){
+            var textInput = document.getElementById("firstName").value;
+            textInput = textInput.replace(/[^A-Za-z]/g, "");
+            document.getElementById("firstName").value = textInput;
+          }
+        </script>
         <div class="row">
           <div class="twelve columuns">
 
