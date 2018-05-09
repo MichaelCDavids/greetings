@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
     if (languageButtonChecked){
       var language = languageButtonChecked.value;
-      var name = nameBox.value;
+      var name = greetObject.firstCap(nameBox.value);
       if(name !== ""){
         outputSection.innerHTML = greetObject.greet(name,language);
       }else if (name === "" ){
