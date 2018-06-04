@@ -17,16 +17,4 @@ describe('The greetings Function',function(){
     assert.equal(greetingsObject.greet('Michael','Afrikaans'),'Goeie dag, Michael');
     assert.equal(greetingsObject.greet('Michael','isiXhosa'),'Molo, Michael');
   });
-  it('should keep track of how many users have been greeted',function(){
-    var greetingsObject = GreetingsFactory();
-
-    greetingsObject.greet('Michael','English');
-    greetingsObject.count();
-    greetingsObject.greet('Amirah','Afrikaans');
-    greetingsObject.count();
-    greetingsObject.greet('Waahid','isiXhosa');
-    let result = greetingsObject.count();
-
-    assert.equal(result,3);
-  });
 });

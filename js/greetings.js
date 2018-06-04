@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded',function(){
 
-
   var nameBox = document.querySelector('.name-box');
   var greetSettings = document.querySelector('.greetSettings');
   var greetBtn  = document.querySelector('.greetButton');
@@ -14,19 +13,28 @@ document.addEventListener('DOMContentLoaded',function(){
 
   counterSection.innerHTML = greetObject.getCountTotal();
 
+
+  function validateAlpha(){
+   var textInput = document.getElementById("firstName").value;
+   textInput = textInput.replace(/[^A-Za-z]/g, "");
+   document.getElementById("firstName").value = textInput;
+ }
+
   greetBtn.addEventListener('click',function(){
     var languageButtonChecked = document.querySelector("input[name='greetType']:checked");
-
     if (languageButtonChecked){
       var language = languageButtonChecked.value;
-      var name = greetObject.firstCap(nameBox.value);
+      var name = nameBox.value;
+      name = validateAlpha()
+      name = nameBox.value.toLowerCase();
+      name = greetObject.firstCap(name);
       if(name !== ""){
         outputSection.innerHTML = greetObject.greet(name,language);
-      }else if (name === "" ){
-        outputSection.innerHTML = "Name can not be empty"
+      }else if (name === ""){
+        outputSection.innerHTML = "Error: No name entered."
       }
       counterSection.innerHTML = greetObject.getCountTotal();
-      nameBox.value = ""
+      nameBox.value = "";
       localStorage.setItem('Users', JSON.stringify(greetObject.userMap()));
     }else{
       outputSection.innerHTML = alert('Please choose a language');
@@ -35,5 +43,6 @@ document.addEventListener('DOMContentLoaded',function(){
 
   resetBtn.addEventListener('click',function(){
     greetObject.reset();
+    location.reload();
   });
 });
